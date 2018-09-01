@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="height:70px;">
+    <img src="../assets/images/icon.png" width="300" height="40">
+    <ul class="navbar-nav mr-auto color">
+      <li class="nav-item">
+        <a class="fa fa-user  log" routerLink="carlist" class="nav-link">
+        <b>CarList</b></a>
+      </li>
+    </ul>
+    <div class="nav-item active" style="margin-left: 20px;">
+      <a routerLink="/search">
+        <i class="fa fa-search" aria-hidden="true">  Search</i>
+      </a>
+    </div>
+    <button  class="btn pd" routerLink="/addcar">AddCar</button>
+    <button *ngIf="log" class="btn pd"  routerLink="/profile">Profile</button>
+    <button *ngIf="log" class="btn pd"  routerLink="/usercarlisting">UserCars</button>  
+        <button *ngIf="log" class="btn pd" (click)="authSignOut()"  routerLink="/logout">Logout</button>
+      <ul class="nav-item active" style="margin-top: 12px;" *ngIf="notlog">
+          <a  style="text-decoration: none;"class="log" routerLink="/login"><b>Login</b></a>
+      </ul>
+      <button *ngIf="notlog" class="btn" routerLink="/register">Signup</button>
+  </div>
+</nav>
+<router-outlet></router-outlet>

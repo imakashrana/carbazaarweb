@@ -1,0 +1,26 @@
+.color{
+    color: white;
+    padding-right: 20px;
+    font-size: 20px;
+}
+.btn{
+    margin-left: 0px;
+    border-radius: 8px;
+}
+.btn:hover{
+    color: white;
+    background-color: black;
+}
+
+.log{
+    color: silver;
+    padding-right: 10px;
+    font-size: 20px;
+}
+.log:hover{
+    color: white;
+}
+
+.pd{
+    margin-left: 20px;
+}

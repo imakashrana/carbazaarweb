@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row top" >
+    <div class="col-md-4" *ngFor="let car of cars" style=" margin-top: 20px;">
+        <div style="background-color: white; color: black; font-size: 20px"class="text">
+          </div>
+      <img src="../src/assets/uploads/{{car.photos}}"width="300" height="230">
+      <div style="background-color: black; margin-top: 8px;height: 70px;;" class="text">
+        
+               <span *ngIf="car.status != status">
+                  <a href="/details/{{ car._id }} " style="font-size: 20px" class="button"><b>Details</b></a>
+                 </span>
+               <span *ngIf="car.status == status" >
+                  <button class="button" style="color:red;"><b>SoldOut!!</b></button>
+               </span><br>
+               <span style="margin-top:50px;color: white;" >
+             <b>   Model :{{car.model}}</b>
+               </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
