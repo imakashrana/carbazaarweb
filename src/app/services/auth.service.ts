@@ -9,9 +9,12 @@ interface registerResponse{
   success:boolean
 }
 const httpOptions ={
-  headers : new HttpHeaders().headers('Content-Type', 'application/json; charset=utf-8')
-                                .headers('Access-Control-Allow-Origin', '*')
-                                 .headers('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+  headers : new HttpHeaders();
+  headers.append('Content-Type', 'application/json; charset=utf-8')
+  headers.append('Access-Control-Allow-Headers', 'Content-Type');
+headers.append('Access-Control-Allow-Methods', 'GET');
+headers.append('Access-Control-Allow-Origin', '*');
+  headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
      };
 @Injectable({
   providedIn: 'root'
