@@ -16,8 +16,8 @@ const httpOptions = {
 })
 export class AuthService {
  
-  private _registerurl="http://localhost:3000/users/adduser";
-  private _loginurl="http://localhost:3000/users/login";
+  private _registerurl="https://carbazaarapi.herokuapp.com/users/adduser";
+  private _loginurl="https://carbazaarapi.herokuapp.com/users/login";
   constructor(private http: HttpClient ,private router: Router) { }
   private extractData(res: Response) {
     const body = res;
@@ -50,11 +50,11 @@ export class AuthService {
   // Get car's by user
 getCarUserList(userid) {
 
-  return this.http.get<any>('http://localhost:3000/car/getByID/' + userid, userid);
+  return this.http.get<any>('https://carbazaarapi.herokuapp.com/car/getByID/' + userid, userid);
 }
 // call node Api for display particular car detail on frontend in angular
 sendEmailforprice() {
-  return this.http.get(`http://localhost:3000/users/sendemail`, httpOptions).pipe(
+  return this.http.get(`https://carbazaarapi.herokuapp.com/users/sendemail`, httpOptions).pipe(
     map(this.extractData),
     catchError(this.handleError));
 }
@@ -78,11 +78,11 @@ authSignOut() {
 
 changePassword(email, registerUserData) {
   debugger;
-  return this.http.post<any>('http://localhost:3000/users/changepassword/' + email, registerUserData);
+  return this.http.post<any>('https://carbazaarapi.herokuapp.com/users/changepassword/' + email, registerUserData);
 }
 // Delete car's by user
 deleteCarbyuser(r) {
   debugger;
-    return this.http.put<any>( 'http://localhost:3000/car/deletecar/' + r, httpOptions);
+    return this.http.put<any>( 'https://carbazaarapi.herokuapp.com/car/deletecar/' + r, httpOptions);
   }
 }
