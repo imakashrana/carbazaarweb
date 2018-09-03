@@ -7,7 +7,7 @@ var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=u
 .set('Access-Control-Allow-Origin', '*')
 .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
 const httpOptions = {
-headers: headers
+headers= headers
 };
 @Injectable({
   providedIn: 'root'
