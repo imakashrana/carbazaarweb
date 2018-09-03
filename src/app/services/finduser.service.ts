@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
                                 .set('Access-Control-Allow-Origin', '*')
                                  .set('Access-Control-Allow-Methods', 'POST');
         const httpOptions =  {
-            headers:Headers
+            Headers:headers
         };
 @Injectable({
   providedIn: 'root'
