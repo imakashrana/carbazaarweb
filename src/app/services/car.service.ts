@@ -4,10 +4,9 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Car } from '../model/car.model';
-const httpOptions = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-                                .set('Access-Control-Allow-Origin', '*')
-                                 .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-     
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};   
 @Injectable({
   providedIn: 'root'
 })
