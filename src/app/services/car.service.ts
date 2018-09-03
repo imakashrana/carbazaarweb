@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class CarService {
 
-  private _url='http://localhost:3000/car/addcar'
+  private _url='https://carbazaarapi.herokuapp.com/car/addcar'
   //  private addcarurl="http://localhost:3000/car/addcar";
   constructor(private _http: HttpClient) { }
   private handleError(error: HttpErrorResponse) {
@@ -34,14 +34,14 @@ export class CarService {
   }
   getCars(): Observable<any> {
     debugger;
-    return this._http.get('http://localhost:3000/car/getallcars/total', httpOptions).pipe(
+    return this._http.get('https://carbazaarapi.herokuapp.com/car/getallcars/total', httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
   
   getCarById(id: string) {
     debugger;
-    return this._http.get( 'http://localhost:3000/car/getbycarid/' + id).pipe(
+    return this._http.get( 'https://carbazaarapi.herokuapp.com/car/getbycarid/' + id).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
@@ -85,17 +85,17 @@ debugger;
   // Send car detail for user by email
   sendcardetail(cardetail) {
     debugger;
-    return this._http.post<any>('http://localhost:3000/users/sendcardetail', cardetail, httpOptions);
+    return this._http.post<any>('https://carbazaarapi.herokuapp.com/users/sendcardetail', cardetail, httpOptions);
   }
   // Car Accept by user
   carAccept(body) {
     debugger;
-    return this._http.put('http://localhost:3000/car/updateCarStatus/'  , body);
+    return this._http.put('https://carbazaarapi.herokuapp.com/car/updateCarStatus/'  , body);
   }
   // send email to admin for ask a price of car
   sendRejectmail(email) {
     debugger;
-    return this._http.post('http://localhost:3000/users/rejectcar' + email, httpOptions).pipe(
+    return this._http.post('https://carbazaarapi.herokuapp.com/users/rejectcar' + email, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
