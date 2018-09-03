@@ -7,9 +7,7 @@ import { Car } from '../model/car.model';
 const httpOptions = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
                                 .set('Access-Control-Allow-Origin', '*')
                                  .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        const httpOptions =  {
-            headers: headers
-        };
+     
 @Injectable({
   providedIn: 'root'
 })
