@@ -8,14 +8,12 @@ import { Router } from '@angular/router';
 interface registerResponse{
   success:boolean
 }
-const httpOptions ={
-  headers : new HttpHeaders();
-  headers.append('Content-Type', 'application/json; charset=utf-8')
-  headers.append('Access-Control-Allow-Headers', 'Content-Type');
-headers.append('Access-Control-Allow-Methods', 'GET');
-headers.append('Access-Control-Allow-Origin', '*');
-  headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-     };
+const httpOptions = {
+const headers = httpOptions.append('Content-Type', 'application/json')
+                       httpOptions.append('Access-Control-Allow-Methods', 'POST')
+                       httpOptions.append(('Access-Control-Allow-Origin', '*')
+                       httpOptions.append(('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+};
 @Injectable({
   providedIn: 'root'
 })
