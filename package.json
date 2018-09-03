@@ -40,7 +40,8 @@
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.2",
     "zone.js": "~0.8.26",
-     "express": "*"
+     "express": "*",
+     "typescript": "~2.7.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
