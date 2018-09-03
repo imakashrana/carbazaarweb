@@ -3,12 +3,12 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable,throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-.set('Access-Control-Allow-Origin', '*')
-.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
-const httpOptions = {
-headers= headers
-};
+const httpOptions = { 
+                    headers: new HttpHeaders()
+                .set('Content-Type', 'application/json; charset=utf-8')
+                .set('Access-Control-Allow-Origin', '*')
+                .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
+                    };
 @Injectable({
   providedIn: 'root'
 })
