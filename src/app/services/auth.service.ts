@@ -14,7 +14,8 @@ const httpOptions = {
     'Access-Control-Allow-Methods': 'POST',
     'Access-Control-Allow-Origin': '*'
                       
-};
+});
+  
 @Injectable({
   providedIn: 'root'
 })
