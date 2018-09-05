@@ -28,10 +28,10 @@ registeruser() {
           this.router.navigate(['login']);
           return false;
         } else{
-          this.toastr.error("res.message");
+          this.toastr.error(res.message);
         }
       }, err => {
-        this.toastr.error("error")
+        this.toastr.error(err)
         console.log(err);
       });
   }
