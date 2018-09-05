@@ -1,41 +1,68 @@
 <div class="container" style="margin-top:0px;">
         <div class="col-md-9 col-md-offset-1">
             <h2>Register</h2>
-            <form name="form"  (ngSubmit)="registeruser()">
-                <div class="form-group">
+            <form name="form" #userRegistrationForm="ngForm" (ngSubmit)="registeruser()">
+                <div class="form-group" [class.has-error]="firstName.invalid && firstName.touched">
                     <label for="firstName">First Name</label>
-                    <input type="text" required class="form-control" pattern="[a-zA-Z ]*" name="firstName" [(ngModel)]="registerUserData.firstName" 
+                    <input type="text" required class="form-control" pattern="[a-zA-Z ]*" name="firstName" [(ngModel)]="registerUserData.firstName" #firstName="ngModel"
                     />
-                 
+                    <span class="help-block " style="color: red;" *ngIf="firstName.invalid && firstName.touched">
+                        First Name is required
+                    </span>
+                    <span class="help-block" style="color: red;" *ngIf="firstName.errors?.pattern">
+                        First Name is invalid
+                    </span>
                 </div>
-                <div class="form-group">
+                <div class="form-group" [class.has-error]="lastName.invalid && lastName.touched">
                     <label for="lastName">Last Name</label>
                     <input type="text" class="form-control"  name="lastName" [(ngModel)]="registerUserData.lastName" #lastName="ngModel" required />
-                  
+                    <span class="help-block " style="color: red;" *ngIf="lastName.invalid && lastName.touched">
+                        Last Name is required
+                    </span>
+                    <span class="help-block" style="color: red;" *ngIf="lastName.errors?.pattern">
+                        Last Name is invalid
+                    </span>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email" [(ngModel)]="registerUserData.email"
-                        required />
-                    
+                <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                    <label for="Email">Email</label>
+                    <input type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" Email class="form-control" name="email" [(ngModel)]="registerUserData.email"
+                        #Email="ngModel" required />
+                    <span class="help-block " style="color: red;" *ngIf="Email.invalid && Email.touched">
+                        Email is required
+                    </span>
+                    <span class="help-block" style="color: red;" *ngIf="Email.errors?.pattern">
+                        Email is invalid
+                    </span>
                 </div>
-               
-                    <div class="form-group">
+                <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup" appConfirmEqualValidator [class.has-error]="passwordGroup.errors?.notEqual
+        && !confirmPassword.errors?.required">
+                    <div class="form-group" [class.has-error]="Password.touched && Password.invalid">
                         <label for="Password" class="control-label">Password</label>
-                        <input id="Password" required type="password" minlength="8" class="form-control"
-                            name="password" [(ngModel)]="registerUserData.password" >
-                      
+                        <input id="Password" required type="password" minlength="8" class="form-control" (input)="confirmPassword.control.updateValueAndValidity()"
+                            name="password" [(ngModel)]="registerUserData.password" #Password="ngModel">
+                        <span class="help-block" *ngIf="Password.touched && Password.errors?.required" style="color: red;">
+                            Password is required
+                        </span>
+                        <span class="help-block" *ngIf="Password.hasError('minlength')" style="color: red;">
+                            Password should contain 8 characters
+                        </span>
                     </div>
     
-                    <div class="form-group">
+                    <div class="form-group" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
                         <label for="confirmPassword" class="control-label">Confirm Password</label>
-                        <input name="confirmPassword" required id="confirmPassword" type="password"
-                               class="form-control" [(ngModel)]="registerUserData.confirmPassword">
-                      
-                  
+                        <input name="confirmPassword" required id="confirmPassword" type="password" class="form-control" [(ngModel)]="registerUserData.confirmPassword"
+                            #confirmPassword="ngModel">
+                        <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+                            <div class="alert alert-danger">Confirm Password is required</div>
+                        </span>
+                        <span class="help-block" *ngIf="confirmPassword.touched && passwordGroup.errors?.notEqual &&
+              !confirmPassword.errors?.required" style="color: red;">
+                            Password and Confirm Password doesn't match
+                        </span>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary">Register</button>
+                    <button class="btn btn-primary" 	>Register</button>
                     <a routerLink="/forgotpassword" style="margin-left: 20px">Forgot Password</a>
                 </div>
             </form>
