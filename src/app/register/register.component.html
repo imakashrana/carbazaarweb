@@ -13,9 +13,9 @@
                     <input type="text" class="form-control"  name="lastName" [(ngModel)]="registerUserData.lastName" #lastName="ngModel" required />
                   
                 </div>
-                <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
-                    <label for="Email">Email</label>
-                    <input type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" Email class="form-control" name="email" [(ngModel)]="registerUserData.email"
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" [(ngModel)]="registerUserData.email"
                         required />
                     
                 </div>
